@@ -7,7 +7,7 @@ python3 main.py --range 192.168.1.0/24 --mode fast --no-api
 
 scheduler scans
 //////////////////////////////
-# Old style options
+# style options
 python3 scheduler.py --add-weekly --name "Basic Scan" --network "192.168.1.0/24" --options "--mode fast"
 
 # New style with API control
@@ -81,9 +81,6 @@ python3 main.py --range 192.168.1.0/24 --no-api
 # Default (smart mode - uses both)
 python3 main.py --range 192.168.1.0/24
 ///////////////////////////////////////////
-
-App Password : 
-secfoyicquoosslj
 
 
 
