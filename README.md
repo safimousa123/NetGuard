@@ -131,7 +131,7 @@ https://www.youtube.com/watch?v=APRyghfkTjo
 
 📧 Email Notification Example:
 
-![NetGuard Gmail Notification](screenshots/gmail.jpg)
+![NetGuard Gmail Notification](NetGuard/screenshots/gmail.jpg)
 
 
 📁 Project Structure:
