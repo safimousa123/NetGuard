@@ -1,0 +1,27 @@
+{
+    "enabled": true,
+    "smtp_server": "smtp.gmail.com",
+    "smtp_port": 587,
+    "use_tls": true,
+    "username": "scanner.app12@gmail.com",
+    "password": "secfoyicquoosslj",
+    "from_email": "scanner.app12@gmail.com",
+    "from_name": "Network Scanner",
+    "recipients": [
+        "safimousa671@gmail.com"
+    ],
+    "notification_triggers": {
+        "scan_complete": true,
+        "new_critical_cve": true,
+        "new_high_cve": true,
+        "new_host": true,
+        "scan_failure": true,
+        "weekly_summary": false
+    },
+    "summary_schedule": {
+        "enabled": true,
+        "frequency": "weekly",
+        "day": "monday",
+        "time": "09:00"
+    }
+}

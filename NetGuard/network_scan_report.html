@@ -1,0 +1,535 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> 🛡️ NetGuard - Network Security Scan Report</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+        
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+        
+        .scan-info {
+            background: #f8f9fa;
+            padding: 20px;
+            border-bottom: 2px solid #e9ecef;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .stat-card {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            text-align: center;
+            border-top: 4px solid #007bff;
+        }
+        
+        .stat-number {
+            font-size: 2em;
+            font-weight: bold;
+            color: #007bff;
+        }
+        
+        .chart-container {
+            width: 300px;
+            height: 300px;
+            margin: 20px auto;
+        }
+        
+        .host-section {
+            margin: 30px;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .host-header {
+            background: #343a40;
+            color: white;
+            padding: 15px 20px;
+            font-size: 1.2em;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .services-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        
+        .services-table th {
+            background: #007bff;
+            color: white;
+            padding: 12px;
+            text-align: left;
+            font-weight: 600;
+        }
+        
+        .services-table td {
+            padding: 12px;
+            border-bottom: 1px solid #e9ecef;
+            vertical-align: top;
+        }
+        
+        .services-table tr:hover {
+            background: #f8f9fa;
+        }
+        
+        .cve-item {
+            margin: 5px 0;
+            padding: 8px 12px;
+            border-radius: 5px;
+            border-left: 4px solid;
+            font-size: 0.9em;
+        }
+        
+        .cve-critical {
+            background: #f8d7da;
+            border-color: #dc3545;
+            color: #721c24;
+        }
+        
+        .cve-high {
+            background: #ffeaa7;
+            border-color: #fd7e14;
+            color: #856404;
+        }
+        
+        .cve-medium {
+            background: #fff3cd;
+            border-color: #ffc107;
+            color: #664d03;
+        }
+        
+        .cve-low {
+            background: #d1edff;
+            border-color: #28a745;
+            color: #155724;
+        }
+        
+        .weak-config {
+            background: #fff3cd;
+            border: 1px solid #ffc107;
+            border-radius: 5px;
+            padding: 8px;
+            margin: 5px 0;
+            color: #664d03;
+        }
+        
+        .no-issues {
+            color: #28a745;
+            font-weight: bold;
+        }
+        
+        .port-badge {
+            background: #007bff;
+            color: white;
+            padding: 4px 8px;
+            border-radius: 15px;
+            font-size: 0.8em;
+            font-weight: bold;
+        }
+        
+        .service-badge {
+            background: #6c757d;
+            color: white;
+            padding: 3px 6px;
+            border-radius: 3px;
+            font-size: 0.7em;
+            text-transform: uppercase;
+        }
+        
+        .banner-text {
+            font-family: monospace;
+            background: #f8f9fa;
+            padding: 5px;
+            border-radius: 3px;
+            font-size: 0.8em;
+            word-break: break-all;
+        }
+        
+        .footer {
+            background: #343a40;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            font-size: 0.9em;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                margin: 10px;
+                border-radius: 10px;
+            }
+            
+            .header h1 {
+                font-size: 1.8em;
+            }
+            
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🛡️ NetGuard - Enterprise Network Security Scanner v2.0</h1>
+            <p>Generated on 2025-11-26 15:06:39</p>
+        </div>
+        
+        <div class="scan-info">
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number">4</div>
+                    <div>Active Hosts</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">6</div>
+                    <div>Open Ports</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">18</div>
+                    <div>Total CVEs</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">16</div>
+                    <div>Unique CVEs</div>
+                </div>
+            </div>
+            
+            <div class="chart-container">
+                <canvas id="severityChart"></canvas>
+            </div>
+        </div>
+        
+        <div class="content">
+            <div class="host-section">
+                <div class="host-header">
+                    <span>🖥️ Host: 10.0.2.7</span>
+                    <span>OS: Linux/Unix | CVEs: 10</span>
+                </div>
+                
+                <table class="services-table">
+                    <thead>
+                        <tr>
+                            <th>Port/Service</th>
+                            <th>Banner</th>
+                            <th>Security Issues</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <span class="port-badge">80</span>
+                                <span class="service-badge">http</span>
+                            </td>
+                            <td>
+                                <div class="banner-text">HTTP/1.1 200 OK
+Date: Wed, 26 Nov 2025 13:05:12 GMT
+Server: Apache
+Connection: close
+Content-Typ...</div>
+                            </td>
+                            <td>
+                                <div class="cve-item cve-critical">
+                                    🔴 <strong>CVE-2021-44228</strong> (CVSS: 10.0)<br>
+                                    Apache Log4j2 Remote Code Execution (Log4Shell)<br>
+                                    <small>📍 Source: Local_DB</small>
+                                </div>
+                                <div class="cve-item cve-high">
+                                    🟠 <strong>CVE-2021-40438</strong> (CVSS: 7.5)<br>
+                                    Apache HTTP Server SSRF<br>
+                                    <small>📍 Source: Local_DB</small>
+                                </div>
+                                <div class="cve-item cve-high">
+                                    🟠 <strong>CVE-1999-0071</strong> (CVSS: 7.5)<br>
+                                    Apache httpd cookie buffer overflow for versions 1.1.1 and earlier.<br>
+                                    <small>📍 Source: NVD_API</small>
+                                </div>
+                                <div class="cve-item cve-high">
+                                    🟠 <strong>CVE-2006-6445</strong> (CVSS: 7.5)<br>
+                                    Directory traversal vulnerability in error.php in Envolution 1.1.0 and earlier allows remote attackers to include and execute arbitrary local files vi...<br>
+                                    <small>📍 Source: NVD_API</small>
+                                </div>
+                                <div class="cve-item cve-medium">
+                                    🟡 <strong>CVE-2013-6111</strong> (CVSS: 4.3)<br>
+                                    Cross-site scripting (XSS) vulnerability in the mod_pagespeed module 0.x, 1.0.22.7, 1.1.x, 1.24.1, 1.3.25.1 through 1.3.25.4, 1.4.26.1 through 1.4.26....<br>
+                                    <small>📍 Source: NVD_API</small>
+                                </div>
+                                <div class="cve-item cve-high">
+                                    🟠 <strong>CVE-2017-7687</strong> (CVSS: 7.5)<br>
+                                    When handling a decoding failure for a malformed URL path of an HTTP request, libprocess in Apache Mesos before 1.1.3, 1.2.x before 1.2.2, 1.3.x befor...<br>
+                                    <small>📍 Source: NVD_API</small>
+                                </div>
+                                <div class="cve-item cve-high">
+                                    🟠 <strong>CVE-2017-9790</strong> (CVSS: 7.5)<br>
+                                    When handling a libprocess message wrapped in an HTTP request, libprocess in Apache Mesos before 1.1.3, 1.2.x before 1.2.2, 1.3.x before 1.3.1, and 1....<br>
+                                    <small>📍 Source: NVD_API</small>
+                                </div>
+                                <div class="weak-config">
+                                    ⚠️ Server header exposed: Server: Apache
+                                </div>
+                                <div class="weak-config">
+                                    ⚠️ Missing security header: x-frame-options
+                                </div>
+                                <div class="weak-config">
+                                    ⚠️ Missing security header: x-content-type-options
+                                </div>
+                                <div class="weak-config">
+                                    ⚠️ Missing security header: strict-transport-security
+                                </div></td></tr>
+                        <tr>
+                            <td>
+                                <span class="port-badge">22</span>
+                                <span class="service-badge">ssh</span>
+                            </td>
+                            <td>
+                                <div class="banner-text">SSH-2.0-OpenSSH_9.9p1 Debian-3</div>
+                            </td>
+                            <td>
+                                <div class="cve-item cve-high">
+                                    🟠 <strong>CVE-2021-4034</strong> (CVSS: 7.8)<br>
+                                    Polkit Local Privilege Escalation (PwnKit)<br>
+                                    <small>📍 Source: Local_DB</small>
+                                </div>
+                                <div class="cve-item cve-high">
+                                    🟠 <strong>CVE-2022-0847</strong> (CVSS: 7.8)<br>
+                                    Linux Kernel Privilege Escalation (Dirty Pipe)<br>
+                                    <small>📍 Source: Local_DB</small>
+                                </div>
+                                <div class="cve-item cve-critical">
+                                    🔴 <strong>CVE-2002-0083</strong> (CVSS: 9.8)<br>
+                                    Off-by-one error in the channel code of OpenSSH 2.0 through 3.0.2 allows local users or remote malicious servers to gain privileges.<br>
+                                    <small>📍 Source: NVD_API</small>
+                                </div></td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="host-section">
+                <div class="host-header">
+                    <span>🖥️ Host: 10.0.2.1</span>
+                    <span>OS: Network Device/Other | CVEs: 0</span>
+                </div>
+                
+                <table class="services-table">
+                    <thead>
+                        <tr>
+                            <th>Port/Service</th>
+                            <th>Banner</th>
+                            <th>Security Issues</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <span class="port-badge">53</span>
+                                <span class="service-badge">dns</span>
+                            </td>
+                            <td>
+                                <div class="banner-text">N/A</div>
+                            </td>
+                            <td><span class="no-issues">✅ No known issues</span></td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="host-section">
+                <div class="host-header">
+                    <span>🖥️ Host: 10.0.2.2</span>
+                    <span>OS: Windows | CVEs: 0</span>
+                </div>
+                
+                <table class="services-table">
+                    <thead>
+                        <tr>
+                            <th>Port/Service</th>
+                            <th>Banner</th>
+                            <th>Security Issues</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <span class="port-badge">445</span>
+                                <span class="service-badge">microsoft-ds</span>
+                            </td>
+                            <td>
+                                <div class="banner-text">N/A</div>
+                            </td>
+                            <td><span class="no-issues">✅ No known issues</span></td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="host-section">
+                <div class="host-header">
+                    <span>🖥️ Host: 10.0.2.10</span>
+                    <span>OS: Linux/Unix | CVEs: 8</span>
+                </div>
+                
+                <table class="services-table">
+                    <thead>
+                        <tr>
+                            <th>Port/Service</th>
+                            <th>Banner</th>
+                            <th>Security Issues</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <span class="port-badge">21</span>
+                                <span class="service-badge">ftp</span>
+                            </td>
+                            <td>
+                                <div class="banner-text">220 (vsFTPd 3.0.5)</div>
+                            </td>
+                            <td>
+                                <div class="cve-item cve-high">
+                                    🟠 <strong>CVE-2020-25213</strong> (CVSS: 8.1)<br>
+                                    vsftpd Backdoor Command Execution<br>
+                                    <small>📍 Source: Local_DB</small>
+                                </div></td></tr>
+                        <tr>
+                            <td>
+                                <span class="port-badge">80</span>
+                                <span class="service-badge">http</span>
+                            </td>
+                            <td>
+                                <div class="banner-text">HTTP/1.1 200 OK
+Date: Wed, 26 Nov 2025 13:05:36 GMT
+Server: Apache/2.4.63 (Debian)
+Last-Modified:...</div>
+                            </td>
+                            <td>
+                                <div class="cve-item cve-critical">
+                                    🔴 <strong>CVE-2021-44228</strong> (CVSS: 10.0)<br>
+                                    Apache Log4j2 Remote Code Execution (Log4Shell)<br>
+                                    <small>📍 Source: Local_DB</small>
+                                </div>
+                                <div class="cve-item cve-high">
+                                    🟠 <strong>CVE-2021-40438</strong> (CVSS: 7.5)<br>
+                                    Apache HTTP Server SSRF<br>
+                                    <small>📍 Source: Local_DB</small>
+                                </div>
+                                <div class="cve-item cve-high">
+                                    🟠 <strong>CVE-2024-43394</strong> (CVSS: 7.5)<br>
+                                    Server-Side Request Forgery (SSRF) in Apache HTTP Server on Windows allows to potentially leak NTLM hashes to a malicious server via 
+mod_rewrite or a...<br>
+                                    <small>📍 Source: NVD_API</small>
+                                </div>
+                                <div class="cve-item cve-high">
+                                    🟠 <strong>CVE-2024-47252</strong> (CVSS: 7.5)<br>
+                                    Insufficient escaping of user-supplied data in mod_ssl in Apache HTTP Server 2.4.63 and earlier allows an untrusted SSL/TLS client to insert escape ch...<br>
+                                    <small>📍 Source: NVD_API</small>
+                                </div>
+                                <div class="cve-item cve-critical">
+                                    🔴 <strong>CVE-2025-23048</strong> (CVSS: 9.1)<br>
+                                    In some mod_ssl configurations on Apache HTTP Server 2.4.35 through to 2.4.63, an access control bypass by trusted clients is possible using TLS 1.3 s...<br>
+                                    <small>📍 Source: NVD_API</small>
+                                </div>
+                                <div class="cve-item cve-high">
+                                    🟠 <strong>CVE-2025-49812</strong> (CVSS: 7.4)<br>
+                                    In some mod_ssl configurations on Apache HTTP Server versions through to 2.4.63, an HTTP desynchronisation attack allows a man-in-the-middle attacker ...<br>
+                                    <small>📍 Source: NVD_API</small>
+                                </div>
+                                <div class="cve-item cve-high">
+                                    🟠 <strong>CVE-2025-53020</strong> (CVSS: 7.5)<br>
+                                    Late Release of Memory after Effective Lifetime vulnerability in Apache HTTP Server.
+
+This issue affects Apache HTTP Server: from 2.4.17 up to 2.4.63....<br>
+                                    <small>📍 Source: NVD_API</small>
+                                </div>
+                                <div class="weak-config">
+                                    ⚠️ Server header exposed: Server: Apache/2.4.63 (Debian)
+                                </div>
+                                <div class="weak-config">
+                                    ⚠️ Missing security header: x-frame-options
+                                </div>
+                                <div class="weak-config">
+                                    ⚠️ Missing security header: x-content-type-options
+                                </div>
+                                <div class="weak-config">
+                                    ⚠️ Missing security header: strict-transport-security
+                                </div></td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        
+        <div class="footer">
+            Report generated by 🛡️ NetGuard - Enterprise Network Security Scanner v2.0<br>
+            Scan completed at 2025-11-26 15:06:39
+        </div>
+    </div>
+    
+    <script>
+        // Severity distribution chart
+        const ctx = document.getElementById('severityChart').getContext('2d');
+        new Chart(ctx, {
+            type: 'doughnut',
+            data: {
+                labels: ['Critical', 'High', 'Medium', 'Low'],
+                datasets: [{
+                    data: [4, 13, 1, 0],
+                    backgroundColor: ['#dc3545', '#fd7e14', '#ffc107', '#28a745']
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    title: {
+                        display: true,
+                        text: 'CVE Severity Distribution'
+                    },
+                    legend: {
+                        position: 'bottom'
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>

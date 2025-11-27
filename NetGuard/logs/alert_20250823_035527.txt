@@ -1,0 +1,6 @@
+ALERT: Scheduled scan 'Instant Test' completed successfully
+Time: 2025-08-23 03:55:27
+Details:
+Duration: 78.0 seconds
+Network: 10.0.2.0/24
+Report: reports/scheduled_scan_Instant Test_20250823_035409.html

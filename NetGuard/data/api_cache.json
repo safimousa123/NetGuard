@@ -1,0 +1,213 @@
+{
+  "c4d34523d442978232c055a6cf895193": [
+    {
+      "cve_id": "CVE-1999-0071",
+      "description": "Apache httpd cookie buffer overflow for versions 1.1.1 and earlier.",
+      "severity": "High",
+      "cvss_score": 7.5,
+      "source": "NVD_API",
+      "match_reason": "api_search"
+    },
+    {
+      "cve_id": "CVE-2006-6445",
+      "description": "Directory traversal vulnerability in error.php in Envolution 1.1.0 and earlier allows remote attackers to include and execute arbitrary local files vi...",
+      "severity": "High",
+      "cvss_score": 7.5,
+      "source": "NVD_API",
+      "match_reason": "api_search"
+    },
+    {
+      "cve_id": "CVE-2013-6111",
+      "description": "Cross-site scripting (XSS) vulnerability in the mod_pagespeed module 0.x, 1.0.22.7, 1.1.x, 1.24.1, 1.3.25.1 through 1.3.25.4, 1.4.26.1 through 1.4.26....",
+      "severity": "Medium",
+      "cvss_score": 4.3,
+      "source": "NVD_API",
+      "match_reason": "api_search"
+    },
+    {
+      "cve_id": "CVE-2017-7687",
+      "description": "When handling a decoding failure for a malformed URL path of an HTTP request, libprocess in Apache Mesos before 1.1.3, 1.2.x before 1.2.2, 1.3.x befor...",
+      "severity": "High",
+      "cvss_score": 7.5,
+      "source": "NVD_API",
+      "match_reason": "api_search"
+    },
+    {
+      "cve_id": "CVE-2017-9790",
+      "description": "When handling a libprocess message wrapped in an HTTP request, libprocess in Apache Mesos before 1.1.3, 1.2.x before 1.2.2, 1.3.x before 1.3.1, and 1....",
+      "severity": "High",
+      "cvss_score": 7.5,
+      "source": "NVD_API",
+      "match_reason": "api_search"
+    }
+  ],
+  "872b7e525c28f2331fcd2e60aa2c8c59": [],
+  "e89df62f5b3e2e10118a855a911c9417": [],
+  "a757c33da6bd6ed22412b8a89c43ba44": [
+    {
+      "cve_id": "CVE-1999-0071",
+      "description": "Apache httpd cookie buffer overflow for versions 1.1.1 and earlier.",
+      "severity": "High",
+      "cvss_score": 7.5,
+      "source": "NVD_API",
+      "match_reason": "api_search"
+    },
+    {
+      "cve_id": "CVE-2017-7687",
+      "description": "When handling a decoding failure for a malformed URL path of an HTTP request, libprocess in Apache Mesos before 1.1.3, 1.2.x before 1.2.2, 1.3.x befor...",
+      "severity": "High",
+      "cvss_score": 7.5,
+      "source": "NVD_API",
+      "match_reason": "api_search"
+    },
+    {
+      "cve_id": "CVE-2017-9790",
+      "description": "When handling a libprocess message wrapped in an HTTP request, libprocess in Apache Mesos before 1.1.3, 1.2.x before 1.2.2, 1.3.x before 1.3.1, and 1....",
+      "severity": "High",
+      "cvss_score": 7.5,
+      "source": "NVD_API",
+      "match_reason": "api_search"
+    }
+  ],
+  "452485530c2e907fcf65256bc20dbffa": [],
+  "fb3bd6f60e1a354b1f3437d923c9e84d": [],
+  "d3c7312758bbaa9ccb8ae57ed3cdc97a": [
+    {
+      "cve_id": "CVE-1999-0071",
+      "description": "Apache httpd cookie buffer overflow for versions 1.1.1 and earlier.",
+      "severity": "High",
+      "cvss_score": 7.5,
+      "source": "NVD_API",
+      "match_reason": "api_search"
+    },
+    {
+      "cve_id": "CVE-2006-6445",
+      "description": "Directory traversal vulnerability in error.php in Envolution 1.1.0 and earlier allows remote attackers to include and execute arbitrary local files vi...",
+      "severity": "High",
+      "cvss_score": 7.5,
+      "source": "NVD_API",
+      "match_reason": "api_search"
+    },
+    {
+      "cve_id": "CVE-2013-6111",
+      "description": "Cross-site scripting (XSS) vulnerability in the mod_pagespeed module 0.x, 1.0.22.7, 1.1.x, 1.24.1, 1.3.25.1 through 1.3.25.4, 1.4.26.1 through 1.4.26....",
+      "severity": "Medium",
+      "cvss_score": 4.3,
+      "source": "NVD_API",
+      "match_reason": "api_search"
+    },
+    {
+      "cve_id": "CVE-2017-7687",
+      "description": "When handling a decoding failure for a malformed URL path of an HTTP request, libprocess in Apache Mesos before 1.1.3, 1.2.x before 1.2.2, 1.3.x befor...",
+      "severity": "High",
+      "cvss_score": 7.5,
+      "source": "NVD_API",
+      "match_reason": "api_search"
+    },
+    {
+      "cve_id": "CVE-2017-9790",
+      "description": "When handling a libprocess message wrapped in an HTTP request, libprocess in Apache Mesos before 1.1.3, 1.2.x before 1.2.2, 1.3.x before 1.3.1, and 1....",
+      "severity": "High",
+      "cvss_score": 7.5,
+      "source": "NVD_API",
+      "match_reason": "api_search"
+    }
+  ],
+  "466eb91814f94290be5a1d53fee3795b": [],
+  "a64df19d7345a4f00616c36f78b36d45": [],
+  "0707ef8b359ff2c6bc8c7f92c838f1f3": [],
+  "65d388e2a755ba4834ecc3d3207b661a": [
+    {
+      "cve_id": "CVE-2024-43394",
+      "description": "Server-Side Request Forgery (SSRF)\u00a0in Apache HTTP Server on Windows allows to potentially leak NTLM hashes to a malicious server via\u00a0\nmod_rewrite or a...",
+      "severity": "High",
+      "cvss_score": 7.5,
+      "source": "NVD_API",
+      "match_reason": "api_search"
+    },
+    {
+      "cve_id": "CVE-2024-47252",
+      "description": "Insufficient escaping of user-supplied data in mod_ssl in Apache HTTP Server 2.4.63 and earlier allows an untrusted SSL/TLS client to insert escape ch...",
+      "severity": "High",
+      "cvss_score": 7.5,
+      "source": "NVD_API",
+      "match_reason": "api_search"
+    },
+    {
+      "cve_id": "CVE-2025-23048",
+      "description": "In some mod_ssl configurations on Apache HTTP Server 2.4.35 through to 2.4.63, an access control bypass by trusted clients is possible using TLS 1.3 s...",
+      "severity": "Critical",
+      "cvss_score": 9.1,
+      "source": "NVD_API",
+      "match_reason": "api_search"
+    },
+    {
+      "cve_id": "CVE-2025-49812",
+      "description": "In some mod_ssl configurations on Apache HTTP Server versions through to 2.4.63, an HTTP desynchronisation attack allows a man-in-the-middle attacker ...",
+      "severity": "High",
+      "cvss_score": 7.4,
+      "source": "NVD_API",
+      "match_reason": "api_search"
+    },
+    {
+      "cve_id": "CVE-2025-53020",
+      "description": "Late Release of Memory after Effective Lifetime vulnerability in Apache HTTP Server.\n\nThis issue affects Apache HTTP Server: from 2.4.17 up to 2.4.63....",
+      "severity": "High",
+      "cvss_score": 7.5,
+      "source": "NVD_API",
+      "match_reason": "api_search"
+    }
+  ],
+  "6c2478049b1fcdb7c178c34e1631957d": [
+    {
+      "cve_id": "CVE-2002-0083",
+      "description": "Off-by-one error in the channel code of OpenSSH 2.0 through 3.0.2 allows local users or remote malicious servers to gain privileges.",
+      "severity": "Critical",
+      "cvss_score": 9.8,
+      "source": "NVD_API",
+      "match_reason": "api_search"
+    }
+  ],
+  "483e7e07ccc4975a6b2b758352078bca": [
+    {
+      "cve_id": "CVE-2024-43394",
+      "description": "Server-Side Request Forgery (SSRF)\u00a0in Apache HTTP Server on Windows allows to potentially leak NTLM hashes to a malicious server via\u00a0\nmod_rewrite or a...",
+      "severity": "High",
+      "cvss_score": 7.5,
+      "source": "NVD_API",
+      "match_reason": "api_search"
+    },
+    {
+      "cve_id": "CVE-2024-47252",
+      "description": "Insufficient escaping of user-supplied data in mod_ssl in Apache HTTP Server 2.4.63 and earlier allows an untrusted SSL/TLS client to insert escape ch...",
+      "severity": "High",
+      "cvss_score": 7.5,
+      "source": "NVD_API",
+      "match_reason": "api_search"
+    },
+    {
+      "cve_id": "CVE-2025-23048",
+      "description": "In some mod_ssl configurations on Apache HTTP Server 2.4.35 through to 2.4.63, an access control bypass by trusted clients is possible using TLS 1.3 s...",
+      "severity": "Critical",
+      "cvss_score": 9.1,
+      "source": "NVD_API",
+      "match_reason": "api_search"
+    },
+    {
+      "cve_id": "CVE-2025-49812",
+      "description": "In some mod_ssl configurations on Apache HTTP Server versions through to 2.4.63, an HTTP desynchronisation attack allows a man-in-the-middle attacker ...",
+      "severity": "High",
+      "cvss_score": 7.4,
+      "source": "NVD_API",
+      "match_reason": "api_search"
+    },
+    {
+      "cve_id": "CVE-2025-53020",
+      "description": "Late Release of Memory after Effective Lifetime vulnerability in Apache HTTP Server.\n\nThis issue affects Apache HTTP Server: from 2.4.17 up to 2.4.63....",
+      "severity": "High",
+      "cvss_score": 7.5,
+      "source": "NVD_API",
+      "match_reason": "api_search"
+    }
+  ]
+}

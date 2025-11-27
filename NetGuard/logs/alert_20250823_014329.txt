@@ -1,0 +1,6 @@
+ALERT: Scheduled scan 'Quick Test' completed successfully
+Time: 2025-08-23 01:43:29
+Details:
+Duration: 53.4 seconds
+Network: 10.0.2.0/24
+Report: scheduled_scan_Quick Test_20250823_014236.html

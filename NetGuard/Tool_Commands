@@ -1,0 +1,112 @@
+python3 main.py --range 192.168.1.0/24 --mode fast
+python3 main.py --target 192.168.1.100 --os-detect --weak-config
+
+python3 main.py --range 192.168.1.0/24 --mode fast --use-api
+python3 main.py --range 192.168.1.0/24 --mode fast --no-api
+
+
+scheduler scans
+//////////////////////////////
+# Old style options
+python3 scheduler.py --add-weekly --name "Basic Scan" --network "192.168.1.0/24" --options "--mode fast"
+
+# New style with API control
+python3 scheduler.py --add-weekly --name "API Scan" --network "192.168.1.0/24" --options "--mode fast --use-api --os-detect"
+
+python3 scheduler.py --add-daily --name "Instant Test" --network "10.0.2.0/24" --time "03:11" --options "--mode fast --use-api --os-detect --weak-config"
+
+python3 scheduler.py --start
+
+nohup python3 scheduler.py --start > /dev/null 2>&1 &
+
+ps aux | grep scheduler
+
+python3 scheduler.py --list
+
+python3 scheduler.py --remove 1
+
+kill 281658 /// kill id of the schedular proccess
+
+
+
+//////////////////////////////////
+Basic Scanning:
+
+# Simple scan
+python3 main.py --target 192.168.1.100 --mode fast
+
+# Network range scan
+python3 main.py --range 192.168.1.0/24 --mode fast
+
+# Full scan with all features
+python3 main.py --range 192.168.1.0/24 --mode fast --use-api --os-detect --weak-config
+//////////////////////////////////////////////////////////
+Database Commands:
+
+# Scan with database tracking (default)
+python3 main.py --target 192.168.1.100 --mode fast
+
+# Scan without database
+python3 main.py --target 192.168.1.100 --mode fast --no-db
+
+# View database tables
+sqlite3 data/scan_history.db ".tables"
+
+# View recent scans
+sqlite3 data/scan_history.db "SELECT scan_date, network_range, total_hosts, total_cves FROM scans ORDER BY scan_date DESC LIMIT 5;"
+/////////////////////////////////////////////////////////////
+Scheduler Commands:
+
+# Add weekly schedule
+python3 scheduler.py --add-weekly --name "Sunday Scan" --network "192.168.1.0/24" --day sunday --time "02:00"
+
+# Start scheduler
+python3 scheduler.py --start
+
+# List schedules
+python3 scheduler.py --list
+
+# Remove schedule
+python3 scheduler.py --remove 1
+
+//////////////////////////////////////////////
+API Control:
+
+# Use API (comprehensive but slower)
+python3 main.py --range 192.168.1.0/24 --use-api
+
+# Local database only (faster)
+python3 main.py --range 192.168.1.0/24 --no-api
+
+# Default (smart mode - uses both)
+python3 main.py --range 192.168.1.0/24
+///////////////////////////////////////////
+
+App Password : 
+secfoyicquoosslj
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

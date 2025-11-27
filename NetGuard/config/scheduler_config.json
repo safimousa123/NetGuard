@@ -1,0 +1,14 @@
+{
+    "schedules": [],
+    "scanner_path": "main.py",
+    "default_options": "--mode fast --use-api",
+    "notifications": {
+        "enabled": true,
+        "file_alerts": true,
+        "email_alerts": false
+    },
+    "retention": {
+        "keep_logs_days": 30,
+        "keep_reports_days": 90
+    }
+}

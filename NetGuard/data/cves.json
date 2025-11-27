@@ -1,0 +1,272 @@
+[
+    {
+        "cve_id": "CVE-2021-44228",
+        "service": "http",
+        "description": "Apache Log4j2 Remote Code Execution (Log4Shell)",
+        "severity": "Critical",
+        "cvss_score": 10.0,
+        "banner_contains": ["log4j", "apache", "java"],
+        "version_patterns": ["log4j.*2\\.[0-9]", "apache.*log4j"]
+    },
+    {
+        "cve_id": "CVE-2022-0778",
+        "service": "https",
+        "description": "OpenSSL Infinite Loop DoS",
+        "severity": "High",
+        "cvss_score": 7.5,
+        "banner_contains": ["openssl"],
+        "version_patterns": ["openssl.*1\\.1\\.1[a-m]", "openssl.*3\\.0\\.[0-2]"]
+    },
+    {
+        "cve_id": "CVE-2021-34527",
+        "service": "smb",
+        "description": "Windows Print Spooler RCE (PrintNightmare)",
+        "severity": "Critical",
+        "cvss_score": 9.0,
+        "banner_contains": ["windows", "smb", "print"],
+        "version_patterns": ["windows.*server.*2019", "windows.*10"]
+    },
+    {
+        "cve_id": "CVE-2020-1472",
+        "service": "smb",
+        "description": "Netlogon Privilege Escalation (Zerologon)",
+        "severity": "Critical",
+        "cvss_score": 9.8,
+        "banner_contains": ["windows", "netlogon", "domain"],
+        "version_patterns": ["windows.*server.*2016", "windows.*server.*2019"]
+    },
+    {
+        "cve_id": "CVE-2021-26085",
+        "service": "http",
+        "description": "Confluence Server OGNL Injection",
+        "severity": "Critical",
+        "cvss_score": 9.8,
+        "banner_contains": ["confluence", "atlassian"],
+        "version_patterns": ["confluence.*[6-7]\\.[0-9]"]
+    },
+    {
+        "cve_id": "CVE-2019-0708",
+        "service": "rdp",
+        "description": "Windows RDP BlueKeep RCE",
+        "severity": "Critical",
+        "cvss_score": 9.8,
+        "banner_contains": ["rdp", "terminal", "remote desktop"],
+        "version_patterns": ["windows.*xp", "windows.*vista", "windows.*7", "windows.*server.*2008"]
+    },
+    {
+        "cve_id": "CVE-2020-25213",
+        "service": "ftp",
+        "description": "vsftpd Backdoor Command Execution",
+        "severity": "High",
+        "cvss_score": 8.1,
+        "banner_contains": ["vsftpd"],
+        "version_patterns": ["vsftpd.*2\\.3\\.4"]
+    },
+    {
+        "cve_id": "CVE-2022-22965",
+        "service": "http",
+        "description": "Spring Framework RCE (Spring4Shell)",
+        "severity": "Critical",
+        "cvss_score": 9.8,
+        "banner_contains": ["spring", "tomcat", "java"],
+        "version_patterns": ["spring.*5\\.[0-2]", "spring.*5\\.3\\.[0-17]"]
+    },
+    {
+        "cve_id": "CVE-2021-4034",
+        "service": "ssh",
+        "description": "Polkit Local Privilege Escalation (PwnKit)",
+        "severity": "High",
+        "cvss_score": 7.8,
+        "banner_contains": ["openssh", "ubuntu", "debian"],
+        "version_patterns": ["openssh.*[6-8]\\.[0-9]"]
+    },
+    {
+        "cve_id": "CVE-2022-30190",
+        "service": "http",
+        "description": "Microsoft Office Remote Code Execution (Follina)",
+        "severity": "High",
+        "cvss_score": 7.8,
+        "banner_contains": ["microsoft", "iis", "office"],
+        "version_patterns": ["microsoft.*office", "iis.*[8-10]"]
+    },
+    {
+        "cve_id": "CVE-2021-22986",
+        "service": "https",
+        "description": "F5 BIG-IP Remote Code Execution",
+        "severity": "Critical",
+        "cvss_score": 9.8,
+        "banner_contains": ["f5", "big-ip", "tmui"],
+        "version_patterns": ["big-ip.*1[1-6]\\.[0-9]"]
+    },
+    {
+        "cve_id": "CVE-2020-14882",
+        "service": "http",
+        "description": "Oracle WebLogic Server RCE",
+        "severity": "Critical",
+        "cvss_score": 9.8,
+        "banner_contains": ["weblogic", "oracle"],
+        "version_patterns": ["weblogic.*1[0-4]\\.[0-9]"]
+    },
+    {
+        "cve_id": "CVE-2022-26134",
+        "service": "http",
+        "description": "Atlassian Confluence RCE",
+        "severity": "Critical",
+        "cvss_score": 9.8,
+        "banner_contains": ["confluence", "atlassian"],
+        "version_patterns": ["confluence.*[1-7]\\.[0-9]"]
+    },
+    {
+        "cve_id": "CVE-2021-44077",
+        "service": "http",
+        "description": "ManageEngine ServiceDesk Plus RCE",
+        "severity": "Critical",
+        "cvss_score": 9.8,
+        "banner_contains": ["manageengine", "servicedesk"],
+        "version_patterns": ["servicedesk.*1[0-1]\\.[0-9]"]
+    },
+    {
+        "cve_id": "CVE-2022-1388",
+        "service": "https",
+        "description": "F5 BIG-IP Authentication Bypass",
+        "severity": "Critical",
+        "cvss_score": 9.8,
+        "banner_contains": ["f5", "big-ip"],
+        "version_patterns": ["big-ip.*1[2-6]\\.[0-9]"]
+    },
+    {
+        "cve_id": "CVE-2021-40438",
+        "service": "http",
+        "description": "Apache HTTP Server SSRF",
+        "severity": "High",
+        "cvss_score": 7.5,
+        "banner_contains": ["apache"],
+        "version_patterns": ["apache.*2\\.4\\.[0-4][0-8]"]
+    },
+    {
+        "cve_id": "CVE-2020-8554",
+        "service": "http",
+        "description": "Kubernetes Man-in-the-Middle via LoadBalancer",
+        "severity": "Medium",
+        "cvss_score": 5.0,
+        "banner_contains": ["kubernetes", "k8s"],
+        "version_patterns": ["kubernetes.*1\\.[0-1][0-9]"]
+    },
+    {
+        "cve_id": "CVE-2022-22947",
+        "service": "http",
+        "description": "Spring Cloud Gateway Code Injection",
+        "severity": "Critical",
+        "cvss_score": 10.0,
+        "banner_contains": ["spring", "gateway"],
+        "version_patterns": ["spring.*cloud.*gateway.*3\\.[0-1]"]
+    },
+    {
+        "cve_id": "CVE-2021-31166",
+        "service": "http",
+        "description": "Windows HTTP.sys Remote Code Execution",
+        "severity": "Critical",
+        "cvss_score": 9.8,
+        "banner_contains": ["microsoft", "iis"],
+        "version_patterns": ["iis.*10\\.0", "windows.*server.*2019"]
+    },
+    {
+        "cve_id": "CVE-2020-5902",
+        "service": "https",
+        "description": "F5 BIG-IP TMUI RCE",
+        "severity": "Critical",
+        "cvss_score": 9.8,
+        "banner_contains": ["f5", "tmui"],
+        "version_patterns": ["big-ip.*1[1-5]\\.[0-9]"]
+    },
+    {
+        "cve_id": "CVE-2022-0847",
+        "service": "ssh",
+        "description": "Linux Kernel Privilege Escalation (Dirty Pipe)",
+        "severity": "High",
+        "cvss_score": 7.8,
+        "banner_contains": ["linux", "ubuntu", "debian"],
+        "version_patterns": ["linux.*5\\.[8-9]", "linux.*5\\.1[0-6]"]
+    },
+    {
+        "cve_id": "CVE-2021-22005",
+        "service": "https",
+        "description": "VMware vCenter Server File Upload RCE",
+        "severity": "Critical",
+        "cvss_score": 9.8,
+        "banner_contains": ["vmware", "vcenter"],
+        "version_patterns": ["vcenter.*[6-7]\\.[0-9]"]
+    },
+    {
+        "cve_id": "CVE-2020-14645",
+        "service": "http",
+        "description": "Oracle WebLogic Console RCE",
+        "severity": "High",
+        "cvss_score": 7.2,
+        "banner_contains": ["weblogic", "oracle"],
+        "version_patterns": ["weblogic.*1[2-4]\\.[0-9]"]
+    },
+    {
+        "cve_id": "CVE-2022-27518",
+        "service": "http",
+        "description": "Citrix ADC and Gateway SAML SSO Authentication Bypass",
+        "severity": "High",
+        "cvss_score": 8.2,
+        "banner_contains": ["citrix", "netscaler"],
+        "version_patterns": ["citrix.*1[2-3]\\.[0-9]"]
+    },
+    {
+        "cve_id": "CVE-2021-35464",
+        "service": "http",
+        "description": "ForgeRock AM Server Java Deserialization RCE",
+        "severity": "Critical",
+        "cvss_score": 9.8,
+        "banner_contains": ["forgerock", "openam"],
+        "version_patterns": ["openam.*[6-7]\\.[0-9]"]
+    },
+    {
+        "cve_id": "CVE-2020-10189",
+        "service": "http",
+        "description": "Zoho ManageEngine Desktop Central RCE",
+        "severity": "Critical",
+        "cvss_score": 9.8,
+        "banner_contains": ["manageengine", "desktop central"],
+        "version_patterns": ["desktop.*central.*10\\.[0-9]"]
+    },
+    {
+        "cve_id": "CVE-2022-40684",
+        "service": "https",
+        "description": "Fortinet FortiOS Authentication Bypass",
+        "severity": "Critical",
+        "cvss_score": 9.6,
+        "banner_contains": ["fortinet", "fortios", "fortigate"],
+        "version_patterns": ["fortios.*[6-7]\\.[0-9]"]
+    },
+    {
+        "cve_id": "CVE-2021-26855",
+        "service": "https",
+        "description": "Microsoft Exchange Server SSRF (ProxyLogon)",
+        "severity": "Critical",
+        "cvss_score": 9.8,
+        "banner_contains": ["microsoft", "exchange"],
+        "version_patterns": ["exchange.*201[6-9]"]
+    },
+    {
+        "cve_id": "CVE-2020-0688",
+        "service": "https",
+        "description": "Microsoft Exchange Server RCE",
+        "severity": "High",
+        "cvss_score": 8.8,
+        "banner_contains": ["microsoft", "exchange"],
+        "version_patterns": ["exchange.*201[0-9]"]
+    },
+    {
+        "cve_id": "CVE-2022-41082",
+        "service": "https",
+        "description": "Microsoft Exchange Server RCE (ProxyNotShell)",
+        "severity": "High",
+        "cvss_score": 8.8,
+        "banner_contains": ["microsoft", "exchange"],
+        "version_patterns": ["exchange.*201[6-9]"]
+    }
+]
