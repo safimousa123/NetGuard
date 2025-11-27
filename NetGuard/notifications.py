@@ -47,7 +47,7 @@ class EmailNotifier:
                     "username": "",
                     "password": "",
                     "from_email": "",
-                    "from_name": "Network Scanner",
+                    "from_name": "🛡️NetGuard - Network Security Scaanner",
                     "recipients": [],
                     "notification_triggers": {
                         "scan_complete": True,
